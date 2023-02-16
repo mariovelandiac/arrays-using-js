@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 for Each</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        const tasks = [
+            {
+                id: 'cuentas',
+                title: 'Hacer cuentas',
+                status: 'done',
+                message: 'Todo bien todo bonito'
+            },
+            {
+                id: 'contraseñas',
+                title: 'Gestión Contraseñas',
+                status: 'done',
+                message: 'Mayor seguridad'
+            },
+            {
+                id: 'turing',
+                title: 'Test Turing',
+                status: 'undone',
+                message: 'Le perdí confianza a Turing'
+            },
+            {
+                id: 'platzi',
+                title: 'Platzi Clases',
+                status: 'undone',
+                message: 'Seguir aprendiendo'
+            },
+            {
+                id: 'almuerzo',
+                title: 'Almuerzo',
+                status: 'undone',
+                message: 'Pasta con pollito'
+            }
+        ];
+        const app = document.querySelector('#app');
+        tasks.forEach(item => {
+            let isDone
+            item.status === 'done' ? isDone = 'checked' : isDone = '';
+            console.log(isDone)
+            app.innerHTML += `
+            <input type="checkbox" id="${item.id}" ${isDone}>
+            <label for="${item.id}">${item.title} - ${item.message}</label>`
+        })
+    </script>
+</body>
+</html>
